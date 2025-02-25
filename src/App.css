@@ -1,4 +1,10 @@
+.hero {
+  background-image: url("./assets//ArticlesHero.jpg");
+  background-size: cover;
+}
+
 /* #root {
+
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
