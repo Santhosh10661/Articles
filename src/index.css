@@ -1,5 +1,7 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+@import "tailwindcss";
+:root {
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: "Jost", serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,7 +15,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+/* a { 
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
