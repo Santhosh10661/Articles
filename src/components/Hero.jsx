@@ -1,6 +1,6 @@
 import React from "react";
-import ArticlesHero from "../assets/ArticlesHero.jpg";
 import Navbar from "./Navbar";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Hero = () => {
   return (
@@ -33,15 +33,17 @@ const Hero = () => {
             Freedom of the press is not just important to democracy, it is
             democracy.
           </p>
-
           <div className="bg-gray-50 rounded-full w-md my-5 flex p-1 ">
             <input
               type="text"
-              className="p-5 w-auto text-gray-800 flex-2 border-none outline-none text-md"
-              placeholder="searcch"
+              className="p-3 w-auto text-gray-800 flex-2 border-none outline-none text-xl font-medium"
+              placeholder="search"
             />
-            <button className="bg-gray-800 text-gray-50 px-5 rounded-full flex-1 cursor-pointer  text-xl">
+            <button className="bg-gray-800 text-gray-50 px-5 py-1 rounded-full flex-1 cursor-pointer text-xl flex justify-between items-center">
               Search
+              <div className="bg-gray-50 rounded-full flex justify-center items-center aspect-1/1 p-2 ">
+                <FaArrowRightLong className="text-gray-800 " />
+              </div>
             </button>
           </div>
         </div>

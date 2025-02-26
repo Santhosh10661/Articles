@@ -1,34 +1,56 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { dateConvertion } from "../HomePage";
 
 const PopularArticles = (props) => {
   let { data } = props;
-  return (
-    <section className="p-5 text-gray-800">
-      <h1 className="text-7xl w-full">Popular Articles</h1>
+  let navigate = useNavigate();
 
-      <div className="flex">
-        <div className="flex-1">
-          <div>
-            <img src={data[0].urlToImage} alt="" />
-            <p>{data[0].publishedAt}</p>
-            <h1 className="text-6xl">{data[0].title}</h1>
-            <p>{data[0].description}</p>
+  return (
+    <section className="py-10 text-gray-800 container mx-auto ">
+      <h1 className="text-4xl w-full font-medium mb-5">Popular Articles</h1>
+
+      <div className="flex ">
+        <div className="w-50 flex-1 ">
+          <div
+            className="cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-300 p-3"
+            onClick={() => navigate(`/fullarticle/${data[0].id}`)}
+          >
+            <img
+              src={data[0].urlToImage}
+              alt=""
+              className=""
+              style={{ width: "100%" }}
+            />
+            <p className="mt-5">{dateConvertion(data[0].publishedAt)}</p>
+            <h1 className="text-4xl truncate font-medium py-4">
+              {data[0].title}
+            </h1>
+            <p className="text-xl">{data[0].description}</p>
           </div>
         </div>
-        <div className="flex-1">
-          {data.slice(2, 5).map((da, index) => {
+
+        <div className="w-50 flex-1 flex flex-col mx-10 ">
+          {data.slice(2, 5).map((da) => {
             return (
-              <div className="flex my-5" key={index}>
+              <div
+                className="flex flex-1 mb-5 cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-300 p-3"
+                onClick={() => navigate(`/fullarticle/${da.id}`)}
+                key={da.id}
+              >
                 <img
                   src={da.urlToImage}
                   alt=""
-                  className="flex-1"
+                  className="flex-1 rounded-md"
                   style={{ width: "100px", height: "100%" }}
                 />
-                <div className="flex-1">
-                  <p>{da.publishedAt}</p>
-                  <h1 className="text-2xl">{da.title}</h1>
+                <div className="flex-2 mx-10">
+                  <p>{dateConvertion(da.publishedAt)}</p>
+                  <h1 className="text-4xl font-medium line-clamp-3 my-3">
+                    {da.title}
+                  </h1>
                 </div>
+                <Link to={`/fullarticle/${da.id}`}>open</Link>
               </div>
             );
           })}
