@@ -1,4 +1,7 @@
 import { useState } from "react";
+import WorldLogo from "../assets/WorldLogo.png";
+import { FaUser } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -6,20 +9,61 @@ export default function Navbar() {
 
   return (
     <nav
-      className="bg-gray-50 w-7xl rounded-full"
+      className="bg-gray-50 w-full md:w-xl lg:w-3xl xl:w-6xl rounded-full"
       style={{
         position: "absolute",
         top: "10%",
         left: "50%",
         transform: "translate(-50%,-50%)",
+        zIndex: "1",
       }}
     >
       <div className=" px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-          <div
-            className="absolute inset-y-0 left-0 flex items-center sm:hidden
-        "
-          >
+          <div className="flex flex-1 items-center ">
+            <img
+              className="h-15 w-auto "
+              src={WorldLogo}
+              alt="Your Company"
+              style={{ transform: "scale(1.2)" }}
+            />
+            <div className="hidden sm:ml-6 sm:block flex items-center h-fit my-auto">
+              <div className="flex space-x-4">
+                {["general", "business", "sports", "technology"].map((item) => (
+                  <NavLink
+                    to={item === "general" ? "/" : `/${item}`}
+                    className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 capitalize hover:bg-gray-700 hover:text-white"
+                    key={item}
+                  >
+                    {item}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="relative ">
+            <button
+              className="flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white p-2"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              <FaUser className=" size-5" />
+            </button>
+
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5">
+                {["Your Profile", "Settings", "Sign out"].map((option) => (
+                  <a
+                    key={option}
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700"
+                  >
+                    {option}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className=" flex items-center sm:hidden">
             <button
               type="button"
               className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:ring-inset"
@@ -56,64 +100,21 @@ export default function Navbar() {
               )}
             </button>
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-              alt="Your Company"
-            />
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4 ">
-                {["Dashboard", "Team", "Projects", "Calendar"].map((item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="relative ml-3">
-            <button
-              className="flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white"
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-            >
-              <img
-                className="size-8 rounded-full"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt="Profile"
-              />
-            </button>
-            {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5">
-                {["Your Profile", "Settings", "Sign out"].map((option) => (
-                  <a
-                    key={option}
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700"
-                  >
-                    {option}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
         </div>
       </div>
       {mobileMenuOpen && (
-        <div className="sm:hidden px-2 pt-2 pb-3 space-y-1">
-          {["Dashboard", "Team", "Projects", "Calendar"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >
-              {item}
-            </a>
-          ))}
+        <div className="sm:hidden relative">
+          <div className="absolute  right-10 px-2 pt-2 pb-3 w-48 space-y-1 bg-gray-50">
+            {["general", "business", "sports", "technology"].map((item) => (
+              <NavLink
+                to={item === "general" ? "/" : `/${item}`}
+                className="rounded-md px-3 block py-2 text-sm font-medium text-gray-800 capitalize hover:bg-gray-700 hover:text-white"
+                key={item}
+              >
+                {item}
+              </NavLink>
+            ))}
+          </div>
         </div>
       )}
     </nav>

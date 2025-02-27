@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { dateConvertion } from "../HomePage";
+import { dateConvertion } from "./Template";
 
 const PopularArticles = (props) => {
   let { data } = props;
@@ -13,7 +13,7 @@ const PopularArticles = (props) => {
       <div className="flex ">
         <div className="w-50 flex-1 ">
           <div
-            className="cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-300 p-3"
+            className="cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300 p-3"
             onClick={() => navigate(`/fullarticle/${data[0].id}`)}
           >
             <img
@@ -34,7 +34,7 @@ const PopularArticles = (props) => {
           {data.slice(2, 5).map((da) => {
             return (
               <div
-                className="flex flex-1 mb-5 cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-300 p-3"
+                className="flex flex-1 mb-5 cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300 p-3"
                 onClick={() => navigate(`/fullarticle/${da.id}`)}
                 key={da.id}
               >

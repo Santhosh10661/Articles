@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
-import { dateConvertion } from "../HomePage";
+
 import { useNavigate } from "react-router-dom";
+import { dateConvertion } from "./Template";
 
 const LatestArticles = (props) => {
   let { data } = props;
@@ -32,7 +33,7 @@ const LatestArticles = (props) => {
           {paginatedItems.map((item) => (
             <div
               key={item.id}
-              className=" h-full w-full sm:w-1/2 md:w-1/3 cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-300 p-3"
+              className=" h-full w-full sm:w-1/2 md:w-1/3 cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300 p-3"
               style={{ width: "100%" }}
               onClick={() => navigate(`/fullarticle/${item.id}`)}
             >
