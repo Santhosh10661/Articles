@@ -1,5 +1,17 @@
-.hero {
+.general {
   background-image: url("./assets/ArticlesHero.jpg");
+  background-size: cover;
+}
+.business {
+  background-image: url("./assets/businessHeroImg.jpg");
+  background-size: cover;
+}
+.sports {
+  background-image: url("./assets/sportsHeroImg.jpg");
+  background-size: cover;
+}
+.technology {
+  background-image: url("./assets/technologyHeroImg.jpg");
   background-size: cover;
 }
 

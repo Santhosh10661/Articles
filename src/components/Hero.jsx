@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
+
 import { FaArrowRightLong } from "react-icons/fa6";
 
-const Hero = () => {
+const Hero = (props) => {
+  let { classN, qoutes, setIsSearched, FindTheArticles } = props;
+  let [inputVal, setInputVal] = useState("");
+
+  const handleChange = (val) => {
+    if (val) {
+      setInputVal(val);
+    } else {
+      setInputVal(val);
+      setIsSearched(false);
+    }
+  };
+  const handleSearch = () => {
+    if (inputVal) {
+      setIsSearched(true);
+      FindTheArticles(inputVal);
+    }
+  };
   return (
     <section
-      className="hero"
-      style={{ height: "100dvh", position: "relative" }}
+      className={`hero ${classN}`}
+      style={{
+        height: "100dvh",
+        position: "relative",
+      }}
     >
       <div
         style={{
@@ -21,7 +42,7 @@ const Hero = () => {
         <Navbar />
 
         <div
-          className=" p-10 m-6 w-7xl "
+          className=" xl:p-10 m-6 w-full  xl:w-7xl "
           style={{
             position: "absolute",
             top: "50%",
@@ -29,17 +50,21 @@ const Hero = () => {
             transform: "translate(-0%,-50%)",
           }}
         >
-          <p className="text-gray-50 text-8xl capitalize font-medium leading-25">
-            Freedom of the press is not just important to democracy, it is
-            democracy.
+          <p className="text-gray-50 text-5xl xl:text-8xl capitalize font-medium ">
+            {qoutes}
           </p>
           <div className="bg-gray-50 rounded-full w-md my-5 flex p-1 ">
             <input
               type="text"
+              value={inputVal}
+              onChange={(e) => handleChange(e.target.value)}
               className="p-3 w-auto text-gray-800 flex-2 border-none outline-none text-xl font-medium"
-              placeholder="search"
+              placeholder="Search"
             />
-            <button className="bg-gray-800 text-gray-50 px-5 py-1 rounded-full flex-1 cursor-pointer text-xl flex justify-between items-center">
+            <button
+              className="bg-gray-800 text-gray-50 px-5 py-1 rounded-full flex-1 cursor-pointer text-xl flex justify-between items-center"
+              onClick={() => handleSearch()}
+            >
               Search
               <div className="bg-gray-50 rounded-full flex justify-center items-center aspect-1/1 p-2 ">
                 <FaArrowRightLong className="text-gray-800 " />
