@@ -10,8 +10,8 @@ const PopularArticles = (props) => {
     <section className="py-10 text-gray-800 container mx-auto ">
       <h1 className="text-4xl w-full font-medium mb-5">Popular Articles</h1>
 
-      <div className="flex ">
-        <div className="w-50 flex-1 ">
+      <div className="flex flex-col lg:flex-row">
+        <div className=" lg:w-50 flex-1 ">
           <div
             className="cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300 p-3"
             onClick={() => navigate(`/fullarticle/${data[0].id}`)}
@@ -30,7 +30,7 @@ const PopularArticles = (props) => {
           </div>
         </div>
 
-        <div className="w-50 flex-1 flex flex-col mx-10 ">
+        <div className=" lg:w-50 flex-1 flex flex-col mx-3 xl:mx-10 ">
           {data.slice(2, 5).map((da) => {
             return (
               <div
@@ -50,7 +50,6 @@ const PopularArticles = (props) => {
                     {da.title}
                   </h1>
                 </div>
-                <Link to={`/fullarticle/${da.id}`}>open</Link>
               </div>
             );
           })}

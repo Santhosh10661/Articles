@@ -42,7 +42,7 @@ const Hero = (props) => {
         <Navbar />
 
         <div
-          className=" xl:p-10 m-6 w-full  xl:w-7xl "
+          className=" p-3 md:p-10  xl:m-6 w-full md:w-2xl lg:w-4xl xl:w-7xl "
           style={{
             position: "absolute",
             top: "50%",
@@ -50,10 +50,10 @@ const Hero = (props) => {
             transform: "translate(-0%,-50%)",
           }}
         >
-          <p className="text-gray-50 text-5xl xl:text-8xl capitalize font-medium ">
+          <p className="text-gray-50 text-5xl md:text-6xl lg:text-7xl xl:text-8xl capitalize font-medium ">
             {qoutes}
           </p>
-          <div className="bg-gray-50 rounded-full w-md my-5 flex p-1 ">
+          <div className="bg-gray-50 rounded-full w-full sm:w-sm md:w-sm lg:w-md my-5 flex p-1 ">
             <input
               type="text"
               value={inputVal}
@@ -62,7 +62,7 @@ const Hero = (props) => {
               placeholder="Search"
             />
             <button
-              className="bg-gray-800 text-gray-50 px-5 py-1 rounded-full flex-1 cursor-pointer text-xl flex justify-between items-center"
+              className="bg-gray-800 text-gray-50 px-5 py-1 rounded-full flex-1 cursor-pointer text-xl flex justify-between items-center "
               onClick={() => handleSearch()}
             >
               Search

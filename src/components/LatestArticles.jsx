@@ -29,12 +29,12 @@ const LatestArticles = (props) => {
       <h1 className="text-4xl w-full font-medium mb-5">Latest Articles</h1>
 
       <div className="">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
           {paginatedItems.map((item) => (
             <div
               key={item.id}
-              className=" h-full w-full sm:w-1/2 md:w-1/3 cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300 p-3"
-              style={{ width: "100%" }}
+              className=" h-full w-full  cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300 p-3"
+              // style={{ width: "100%" }}
               onClick={() => navigate(`/fullarticle/${item.id}`)}
             >
               <img
