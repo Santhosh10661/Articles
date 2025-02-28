@@ -39,7 +39,7 @@ import { setData } from "./redux/app/slices/dataReducer";
 
 export const FetchData = async (dispatch) => {
   try {
-    const res = await fetch("/.netlify/functions/fetchNews"); // Call Netlify function
+    const res = await fetch("/.netlify/functions/getNews"); // Call Netlify function
     const data = await res.json();
 
     if (!res.ok) {
