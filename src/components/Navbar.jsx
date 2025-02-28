@@ -1,5 +1,5 @@
 import { useState } from "react";
-import WorldLogo from "../assets/WorldLogo.png";
+import WorldLogo from "../assets/worldLogo.png";
 import { FaUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
