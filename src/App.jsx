@@ -3,7 +3,6 @@ import "./App.css";
 import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import FullArticle from "./FullArticle";
-import { FetchData } from "./FetchData";
 import { useDispatch, useSelector } from "react-redux";
 import { setData } from "./redux/app/slices/dataReducer";
 import General from "./components/categories/General";
