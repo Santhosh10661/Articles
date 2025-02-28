@@ -15,14 +15,14 @@ const Footer = () => {
           backgroundColor: "rgba(0, 0, 0, 0.6)",
         }}
       >
-        <h1 className="text-gray-50 text-7xl font-medium mb-3 capitalize">
+        <h1 className="text-gray-50 text-center text-5xl md:text-7xl font-medium mb-3 capitalize">
           Media shapes the world’s view
         </h1>
 
-        <div className="bg-gray-50 rounded-full w-md my-5 flex p-1 ">
+        <div className="bg-gray-50 rounded-full w-sm sm:w-md my-5 flex p-1 ">
           <input
             type="text"
-            className="p-3 w-auto text-gray-800 flex-2 border-none outline-none text-xl font-medium"
+            className="p-3  w-50 sm:w-70 text-gray-800 border-none outline-none text-xl font-medium"
             placeholder="type your email address"
           />
           <button className="bg-gray-800 text-gray-50 px-5 py-1 rounded-full flex-1 cursor-pointer text-xl flex justify-between items-center">

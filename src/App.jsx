@@ -10,6 +10,7 @@ import General from "./components/categories/General";
 import Business from "./components/categories/Business";
 import Sports from "./components/categories/Sports";
 import Technology from "./components/categories/Technology";
+import ScrollTop from "./components/ScrollTop";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <main className="bg-gray-50">
+      <ScrollTop />
       {loading === false && (
         <Routes>
           <Route path="/" element={<General />} />

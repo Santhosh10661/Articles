@@ -22,23 +22,24 @@ export default function Navbar() {
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center ">
             <img
-              className="h-15 w-auto "
+              className="h-13 w-auto "
               src={WorldLogo}
               alt="Your Company"
               style={{ transform: "scale(1.2)" }}
             />
             <div className="hidden sm:ml-6 sm:block flex items-center h-fit my-auto">
-              <div className="flex space-x-4">
+              <ul className="flex space-x-4">
                 {["general", "business", "sports", "technology"].map((item) => (
-                  <NavLink
-                    to={item === "general" ? "/" : `/${item}`}
-                    className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 capitalize hover:bg-gray-700 hover:text-white"
-                    key={item}
-                  >
-                    {item}
-                  </NavLink>
+                  <li key={item} className="navItem relative p-1">
+                    <NavLink
+                      to={item === "general" ? "/" : `/${item}`}
+                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 capitalize  "
+                    >
+                      {item}
+                    </NavLink>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
           <div className="relative ">
@@ -108,7 +109,7 @@ export default function Navbar() {
             {["general", "business", "sports", "technology"].map((item) => (
               <NavLink
                 to={item === "general" ? "/" : `/${item}`}
-                className="rounded-md px-3 block py-2 text-sm font-medium text-gray-800 capitalize hover:bg-gray-700 hover:text-white"
+                className="rounded-md px-3 block py-2 text-sm font-medium text-gray-800 capitalize navItem"
                 key={item}
               >
                 {item}

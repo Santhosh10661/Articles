@@ -1,10 +1,13 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import { dateConvertion } from "./components/Template";
 import CommentSection from "./components/CommentSection";
+import { IoHome } from "react-icons/io5";
+import ScrollTop from "./components/ScrollTop";
+
 const FullArticle = (props) => {
   const { id } = useParams();
   const data = useSelector((state) => state.data.data);
@@ -21,13 +24,24 @@ const FullArticle = (props) => {
   );
 
   return (
-    <section className="text-gray-800 container mx-auto">
-      <a href="/" className="py-3 flex items-center cursor-pointer">
-        <FaArrowLeftLong className=" " /> <span className="mx-3">back</span>
-      </a>
-      <div className="flex ">
-        <div className="flex-2">
-          <h1 className="text-5xl font-medium my-5">{openedArt[0].title}</h1>
+    <section className="text-gray-800 p-4">
+      <ScrollTop />
+      <div className="flex justify-between">
+        <NavLink to={-1} className="py-3 flex items-center cursor-pointer">
+          <FaArrowLeftLong className=" " /> <span className="mx-3">Back</span>
+        </NavLink>
+        <NavLink
+          to={"/"}
+          className="py-3 text-2xl flex items-center cursor-pointer"
+        >
+          <IoHome className=" " />
+        </NavLink>
+      </div>
+      <div className="flex flex-col lg:flex-row">
+        <div className="flex-2 p-2 ">
+          <h1 className="text-2xl md:text-5xl font-bold md:font-medium my-5">
+            {openedArt[0].title}
+          </h1>
           <img
             src={openedArt[0].urlToImage}
             alt="not found"
@@ -53,12 +67,12 @@ const FullArticle = (props) => {
             comment={openedArt[0].comment}
           />
         </div>
-        <div className="flex-1 mx-5 ">
-          <h1 className="text-6xl font-bold my-5 text-center">
+        <div className="flex-1 lg:mx-5 ">
+          <h1 className="text-4xl md:text-3xl lg:text-4xl xl:text-5xl font-bold my-5 text-center">
             Related Articles
           </h1>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-2 gap-6">
             {related.map((item) => {
               return (
                 <div
