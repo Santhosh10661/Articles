@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import { Blob } from "fetch-blob";
 
 export async function handler() {
   const categories = ["general", "business", "sports", "technology"];
