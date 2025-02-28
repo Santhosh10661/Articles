@@ -11,6 +11,7 @@ import Business from "./components/categories/Business";
 import Sports from "./components/categories/Sports";
 import Technology from "./components/categories/Technology";
 import ScrollTop from "./components/ScrollTop";
+import { StoreData } from "./StoreData";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,7 +25,8 @@ function App() {
         dispatch(setData(SS_Data));
         setLoading(false);
       } else {
-        await FetchData(dispatch);
+        StoreData(dispatch);
+        // await FetchData(dispatch);
         setLoading(false);
       }
     };
